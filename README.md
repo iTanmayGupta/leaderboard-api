@@ -12,6 +12,14 @@ You can also explore the API's Swagger documentation here:
 
 [Swagger Documentation](https://leaderboard-api-fqd4.onrender.com/swagger/)
 
+## Testing the API
+
+You can test the API using the web application deployed at the following URL:
+
+[Leaderboard Web App](https://leaderboard-ui-ashy.vercel.app)
+
+This web app provides a user interface for interacting with the Leaderboard API. You can add users, view the leaderboard, and perform other actions to test the API's functionality.
+
 ## Local Development
 
 Follow the instructions below to set up and run the Leaderboard API locally for development and testing purposes.
