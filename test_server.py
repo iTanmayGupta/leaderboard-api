@@ -17,8 +17,8 @@ def test_get_users(client):
     db.session.commit()
 
     # Add test users to the database
-    user1 = User(name='John', age=30, address='123 Main St')
-    user2 = User(name='Alice', age=25, address='456 Elm St')
+    user1 = User(name='Popp', age=30, address='Germany')
+    user2 = User(name='Grace', age=25, address='Peru')
     db.session.add_all([user1, user2])
     db.session.commit()
 
@@ -30,7 +30,7 @@ def test_get_users(client):
 
 
 def test_get_user(client):
-    user = User(name='John', age=30, address='123 Main St')
+    user = User(name='Tanmay', age=23, address='Toronto')
     db.session.add(user)
     db.session.commit()
 
@@ -38,13 +38,13 @@ def test_get_user(client):
     data = response.get_json()  # Use get_json() to parse JSON
 
     assert response.status_code == 200
-    assert data['name'] == 'John'
+    assert data['name'] == 'Tanmay'
 
 def test_add_user(client):
     new_user = {
-        'name': 'Alice',
-        'age': 25,
-        'address': '456 Elm St'
+        'name': 'Alcaraz',
+        'age': 20,
+        'address': 'Spain'
     }
 
     response = client.post('/user', json=new_user)
@@ -52,9 +52,9 @@ def test_add_user(client):
 
     if response.status_code == 201:
         assert 'id' in data
-        assert data['name'] == 'Alice'
-        assert data['age'] == 25
-        assert data['address'] == '456 Elm St'
+        assert data['name'] == 'Alcaraz'
+        assert data['age'] == 20
+        assert data['address'] == 'Spain'
     elif response.status_code == 400:
         # Handle the case where the user already exists
         assert 'error' in data
@@ -64,17 +64,17 @@ def test_add_user(client):
 
 
 def test_delete_user(client):
-    user = User(name='John', age=30, address='123 Main St')
+    user = User(name='Kroos', age=34, address='Germany')
     db.session.add(user)
     db.session.commit()
 
     response = client.delete(f'/user/{user.id}')
 
     assert response.status_code == 200
-    assert response.get_json()['name'] == 'John'
+    assert response.get_json()['name'] == 'Kroos'
 
 def test_increment_point(client):
-    user = User(name='John', age=30, address='123 Main St')
+    user = User(name='Hamilton', age=37, address='UK')
     db.session.add(user)
     db.session.commit()
 
@@ -85,7 +85,7 @@ def test_increment_point(client):
     assert data['points'] == 1
 
 def test_decrement_point(client):
-    user = User(name='John', age=30, address='123 Main St', points=1)
+    user = User(name='Woods', age=43, address='Nigeria', points=1)
     db.session.add(user)
     db.session.commit()
 
@@ -96,7 +96,7 @@ def test_decrement_point(client):
     assert data['points'] == 0
 
 def test_decrement_point_zero(client):
-    user = User(name='John', age=30, address='123 Main St', points=0)
+    user = User(name='Kohli', age=35, address='Delhi', points=0)
     db.session.add(user)
     db.session.commit()
 
@@ -107,9 +107,9 @@ def test_decrement_point_zero(client):
 
 def test_duplicate_user(client):
     existing_user = {
-        'name': 'John',
-        'age': 30,
-        'address': '123 Main St'
+        'name': 'Kvara',
+        'age': 24,
+        'address': 'Georgia'
     }
 
     # Add an existing user to the database
@@ -126,7 +126,7 @@ def test_invalid_inputs_when_creating_user(client):
     invalid_user = {
         'name': '',
         'age': -5,  # Invalid age
-        'address': '456 Elm St'
+        'address': 'USA'
     }
 
     response = client.post('/user', json=invalid_user)
