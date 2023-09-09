@@ -58,7 +58,7 @@ Replace username, password, and dbname with your PostgreSQL database credentials
 
 ### Running the Server
 
-To start the server, run the following command:
+1. To start the server, run the following command:
 
     ``` python3 server.py
     ```
