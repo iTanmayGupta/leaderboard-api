@@ -60,7 +60,8 @@ Replace username, password, and dbname with your PostgreSQL database credentials
 
 1. To start the server, run the following command:
 
-    ``` python3 server.py
+    ```bash
+    python3 server.py
     ```
 
 By default, the server runs on http://localhost:5000. You can access the API and Swagger documentation through this URL.
