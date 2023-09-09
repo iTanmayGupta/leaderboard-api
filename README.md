@@ -58,7 +58,7 @@ Replace username, password, and dbname with your PostgreSQL database credentials
 
 ### Running the Server
 
-1. To start the server, run the following command:
+To start the server, run the following command:
 
     ```bash
     python3 server.py
@@ -70,7 +70,8 @@ By default, the server runs on http://localhost:5000. You can access the API and
 
 The Swagger documentation for the API is available at:
 
-    ``` http://localhost:5000/swagger/
+    ```bash
+    http://localhost:5000/swagger/
     ```
 
 You can use this documentation to explore and interact with the API endpoints.
@@ -79,5 +80,6 @@ You can use this documentation to explore and interact with the API endpoints.
 
 To run the test suite, execute the following command:
 
-    ``` pytest -s test_server.py
+    ```bash
+    pytest -s test_server.py
     ```
