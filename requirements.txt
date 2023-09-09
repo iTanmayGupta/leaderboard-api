@@ -1,0 +1,7 @@
+Flask
+Flask-SQLAlchemy
+flasgger==0.9.7b2
+psycopg2-binary
+flask_cors
+pytest
+requests
