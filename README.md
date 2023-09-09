@@ -95,3 +95,73 @@ You can use this documentation to explore and interact with the API endpoints.
 To run the test suite, execute the following command:
 
     pytest -s test_server.py
+
+## Understanding Test Cases
+
+The Leaderboard API includes a set of test cases to ensure that the application functions correctly and reliably. These test cases cover various aspects of the API's functionality and help identify any issues or regressions when making changes to the codebase.
+
+Here's a brief explanation of each test case:
+
+### `test_get_users`
+
+This test case verifies the correctness of the `/users` endpoint, which returns a list of users sorted by their scores in descending order. It does the following:
+
+- Clears the database to ensure a clean slate.
+- Adds two test users with predefined names, ages, and addresses.
+- Sends a GET request to the `/users` endpoint.
+- Checks that the response status code is 200 (OK).
+- Verifies that the response contains exactly two user entries.
+
+### `test_get_user`
+
+This test case checks the `/user/{id}` endpoint, which retrieves a user by their ID. It performs the following steps:
+
+- Adds a test user to the database with a known name, age, and address.
+- Sends a GET request to the `/user/{id}` endpoint, specifying the user's ID.
+- Ensures that the response status code is 200 (OK).
+- Verifies that the returned user data matches the predefined values.
+
+### `test_add_user`
+
+The purpose of this test case is to validate the `/user` endpoint for creating new users. It follows these steps:
+
+- Constructs a JSON payload representing a new user with a name, age, and address.
+- Sends a POST request to the `/user` endpoint with the JSON payload.
+- Checks the response status code, which should be either 201 (Created) for a successful creation or 400 (Bad Request) for invalid input.
+- For successful creations, it confirms that the returned data matches the provided input.
+
+### `test_delete_user`
+
+This test case focuses on the `/user/{id}` endpoint for deleting users. It performs the following actions:
+
+- Adds a test user to the database.
+- Sends a DELETE request to the `/user/{id}` endpoint, specifying the user's ID.
+- Verifies that the response status code is 200 (OK).
+- Ensures that the returned user data matches the deleted user's information.
+
+### `test_increment_point`
+
+The purpose of this test case is to test the `/user/{id}/increment` endpoint, which increments a user's score by one point. It follows these steps:
+
+- Adds a test user to the database.
+- Sends a PUT request to the `/user/{id}/increment` endpoint, specifying the user's ID.
+- Validates that the response status code is 200 (OK).
+- Checks that the returned user data reflects the incremented score.
+
+### `test_decrement_point` and `test_decrement_point_zero`
+
+These test cases cover the `/user/{id}/decrement` endpoint, which decreases a user's score by one point. They work as follows:
+
+- For `test_decrement_point`, it adds a test user with a starting score greater than zero, decrements the score, and verifies the response.
+- For `test_decrement_point_zero`, it adds a test user with a starting score of zero, attempts to decrement the score, and ensures a 400 (Bad Request) response is returned with an appropriate error message.
+
+### `test_duplicate_user`
+
+This test case verifies that attempting to create a user with the same name, address, and age as an existing user results in a 400 (Bad Request) response with an error message indicating the duplication.
+
+### `test_invalid_inputs_when_creating_user`
+
+This test case checks for invalid input scenarios when creating a new user. It includes cases such as an empty name, a negative age, and missing required fields, ensuring that the API returns a 400 (Bad Request) response with relevant error messages.
+
+These test cases collectively validate the API's core functionality, including user creation, retrieval, deletion, score modification, error handling, and edge cases.
+
