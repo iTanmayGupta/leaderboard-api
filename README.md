@@ -2,7 +2,17 @@
 
 The Leaderboard API is a RESTful web service built with Flask and SQLAlchemy that provides endpoints for managing user data and tracking user scores. Users can be added, retrieved, deleted, and their scores can be incremented or decremented. Additionally, there is a leaderboard feature to display users with the highest scores.
 
-## Getting Started
+## Accessing the Deployed API
+
+The Leaderboard API is currently deployed and accessible at the following URL:
+
+[https://leaderboard-api-fqd4.onrender.com](https://leaderboard-api-fqd4.onrender.com)
+
+You can also explore the API's Swagger documentation here:
+
+[Swagger Documentation](https://leaderboard-api-fqd4.onrender.com/swagger/)
+
+## Local Development
 
 Follow the instructions below to set up and run the Leaderboard API locally for development and testing purposes.
 
@@ -18,7 +28,7 @@ Before running the application, ensure you have the following software installed
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/iTanmayGupta/leaderboard-api.git
+   git clone https://github.com/your-username/leaderboard-api.git
    ```
 
 2. Navigate to the project directory:
