@@ -40,7 +40,8 @@ template = {
     "openapi": "3.0.0",
     "info": {
         "title": "Leaderboard API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "description": "The Leaderboard API is currently deployed and accessible at the following URL: [Leaderboard API Deployment](https://leaderboard-api-fqd4.onrender.com)",
     }
 }
 
