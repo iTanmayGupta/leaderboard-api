@@ -2,7 +2,7 @@
   "info": {
     "version": "1.0.0",
     "title": "Leaderboard API",
-    "description": "API for managing a leaderboard."
+    "description": "The Leaderboard API is currently deployed and accessible at the following URL: [Leaderboard API Deployment](https://leaderboard-api-fqd4.onrender.com)"
   },
   "paths": {
     "/users": {
